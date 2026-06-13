@@ -50,7 +50,7 @@ spec:
 
 Оба контейнера монтируют общий `emptyDir` volume `/shared`. Контейнер `busybox-writer` пишет в файл каждые 5 секунд, `multitool-reader` читает через `tail -f`:
 
-![emptyDir data exchange](img/5.png)
+![emptyDir data exchange](img/2.png)
 
 ---
 
@@ -141,7 +141,7 @@ kubectl get pv
 kubectl describe pv my-pv
 ```
 
-![PV Released](img/1.png)
+![PV Released](img/4.png)
 
 **Объяснение:** После удаления PVC статус PV изменился с `Bound` на `Released`. PV **не удалился** автоматически, потому что у него установлена политика `persistentVolumeReclaimPolicy: Retain`. Это означает что Kubernetes сохраняет PV и данные на диске даже после удаления PVC — администратор должен удалить PV вручную.
 
@@ -152,7 +152,7 @@ kubectl delete pv my-pv
 minikube ssh "cat /mnt/data/data.txt"
 ```
 
-![Файл на диске после удаления PV](img/2.png)
+![Файл на диске после удаления PV](img/5.png)
 
 **Объяснение:** После удаления PV файл `/mnt/data/data.txt` **остался на диске ноды**. PV — это лишь Kubernetes-объект, описывающий хранилище. Его удаление не затрагивает физические данные на диске. Политика `Retain` гарантирует сохранность данных при любых операциях с Kubernetes-объектами.
 
