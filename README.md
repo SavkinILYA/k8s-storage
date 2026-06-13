@@ -50,7 +50,7 @@ spec:
 
 Оба контейнера монтируют общий `emptyDir` volume `/shared`. Контейнер `busybox-writer` пишет в файл каждые 5 секунд, `multitool-reader` читает через `tail -f`:
 
-![emptyDir data exchange](img/2.png)
+![emptyDir data exchange](img/1.png)
 
 ---
 
@@ -130,7 +130,7 @@ spec:
 
 ### Шаг 2. PV и PVC созданы, под запущен, данные читаются
 
-![PV PVC Bound + данные](img/4.png)
+![PV PVC Bound + данные](img/2.png)
 
 ### Шаг 3. Удаление Deployment и PVC — что стало с PV
 
